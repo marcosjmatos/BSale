@@ -14,6 +14,7 @@ function getClient() {
         database: "bsale_test"
     })
     client.connect();
+    console.log("DB is connected");
     return client;
 }
 
