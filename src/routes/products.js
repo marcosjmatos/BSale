@@ -34,6 +34,16 @@ router.get("/products/:id" , (req,res)=>{
         }
     })
 })
+router.get("/category/product/:category" , (req,res)=>{
+    const {category} = req.params
+    client.query("SELECT * FROM product WHERE category = ?", [category], (err,rows,field)=>{
+        if (!err) {
+            res.json(rows);
+        } else {
+            console.log(err);
+        }
+    })
+})
 
 
 
