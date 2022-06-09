@@ -10,59 +10,48 @@
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar bg-dark">
-        <div class="container-fluid">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button" id="btncategory">Bebida Energética</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Pisco</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Ron</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Bebida</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Snack</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Cerveza</button></li>
-              <li><button class="dropdown-item" type="button" id="btncategory">Vodka</button></li>
-            </ul>
+      /> 
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+      <!-- inicio de header -->
+      <header class="bg-dark d-flex flex-row  justify-content-between  m-0 p-3 toto">
+      <!-- logo y nombre -->
+          <div class="">
+            <img src="un-pan.png" alt="logo" width="30" height="30" class=" mb-2 " /> 
+            <a class="navbar-brand text-light fs-4 ms-2" href="/client/index.html">Matos Shop</a>
           </div>
-          <a class="navbar-brand text-light" href="#">
-            <img
-              src="un-pan.png"
-              alt=""
-              width="30"
-              height="26"
-              class="d-inline-block align-text-top"
-            />
-            Matos Shop
-        </div>
-      </nav>
-    </header>
-    <div class="centar">
-      <div class="container">
-        <form class="form-inline">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Buscar"
-            aria-label="Search"
-            id="formulario"
-          />
-          <button class="btn btn-success" id="boton">
-            Buscar
-          </button>
+      <!--</div> -->
+      <div class=" ">
+        <form class="row row-cols g-3 align-items-center">
+          <input class="form-control " type="text" placeholder="Buscar" aria-label="Search" id="formulario"/>
+          <button class="btn btn-success" id="boton">Buscar</button>
         </form>
       </div>
-      <!--Desde aqui la parte de render de las tarjetas-->
-    </div>
-    <div class="container">
       <div class="products"></div>
     </div>
+
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button" id="btncategory">Bebida Energética</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Pisco</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Ron</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Bebida</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Snack</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Cerveza</button></li>
+                <li><button class="dropdown-item" type="button" id="btncategory">Vodka</button></li>
+              </ul>
+            </div>
+         
+        <!-- </div> -->
+      
+    </header>
+    <!-- fin del header -->
+    <div class="centar">
+      
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

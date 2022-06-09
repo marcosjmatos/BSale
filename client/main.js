@@ -7,25 +7,25 @@ const categoryButtons = document.querySelectorAll("#btncategory")
 const arrCategoryBtns = Array.from(categoryButtons)
 const URL = "http://localhost:3000/"
 
-async function getProducts(func) {
+async function getProducts(name) {
     let elements = []
+    name = input.value.toLowerCase()
     resultado.innerHTML = ""
     try {
-        elements = await func
+        elements = await Loadelement(name)
     } catch (err) {
         console.log(err);
     }
-    const texto = input.value.toLowerCase()
     for (let element of elements) {
         const elementName = element.name.toLowerCase()
-        if (texto === "") {
+        if (name === "") {
             return
-        } if(elementName.indexOf(texto) !== -1) {
+        } if(elementName.indexOf(name) !== -1) {
             resultado.innerHTML += 
             `<div class="card" style="width: 18rem">
             <img src=" ${ (element.url_image == null) || (element.url_image == '')  ? "https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" : element.url_image}" class="card-img-top img-fluid" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">${element.name}</h5>
+              <h5 class="card-title text-wrap">${element.name}</h5>
               <p class="card-text">
                 <br> Precio: ${element.price} $ <br/>
                 <br>Sale!: ${element.discount}% OFF <br/>
@@ -40,13 +40,14 @@ async function getProducts(func) {
         `<div class="card" style="width: 18rem">
             <img src="https://media.istockphoto.com/vectors/curiosity-magnifying-glass-doodle-cartoon-with-question-marks-vector-id1029271926?s=2048x2048" class="card-img-top img-fluid" alt="..." />
             <div class="card-body">
-              <h5 class="card-title"><b>No hay publicaciones que coincidan con tu búsqueda</b></h5>
+              <h5 class="card-title text-wrap" ><b>No hay publicaciones que coincidan con tu búsqueda</b></h5>
             </div>
           </div>`
     }
 }
-async function Loadelement() {
-    const res =await fetch(`${URL}products`,{
+async function Loadelement(name) {
+        //hacer esto en el backend
+    const res =await fetch(`${URL}products/${name}`,{
         headers: {
             "Content-type": "application/json",
             'Access-Control-Allow-Origin': "http://127.0.0.1:5500/",
@@ -65,11 +66,13 @@ async function getProductsByCat(cat) {
         console.log(err);
     }
     for (let element of elements) {
+            //hacer esto en el backend
+
         resultado.innerHTML +=
         `<div class="card" style="width: 18rem">
         <img src=" ${ (element.url_image == null) || (element.url_image == '')  ? "https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" : element.url_image}" class="card-img-top img-fluid" alt="..." />
         <div class="card-body">
-        <h5 class="card-title">${element.name}</h5>
+        <h5 class="card-title text-wrap">${element.name}</h5>
         <p class="card-text">
             <br> Precio: ${element.price} $ <br/>
             <br>Sale!: ${element.discount}% OFF <br/>
@@ -78,29 +81,23 @@ async function getProductsByCat(cat) {
         </div>
         </div>`
     }
-    console.log("hola");
 }
-
-
-  
-
-
 async function loadedCategory(cat) {
-    const res =await fetch(`${URL}category/product/${cat}`,{
+        //hacer esto en el backend
+
+    const res =await fetch(`${URL}category/products/${cat}`,{
         headers: {
             "Content-type": "application/json",
             'Access-Control-Allow-Origin': "http://127.0.0.1:5500/",
         }
     })
     const data = res.json()
-    console.log("chao");
     return data
-
 }
 
 search.addEventListener("click", (e)=>{
     e.preventDefault()
-    getProducts(Loadelement())
+    getProducts(name)
 })
 
 for (let button of arrCategoryBtns) {

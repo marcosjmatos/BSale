@@ -9,8 +9,17 @@ body {
   background-color: #1a202c;
 }
 
+.toto {
+ margin: 0px;
+  padding: 1.5rem ;
+ 
+}
+
+
 .card {
   margin: 30px;
+  transition: transform .5s ease;
+
 }
 .card-img-top {
   min-width: 286px;
@@ -24,13 +33,17 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: black;
+  color: #1a202c;
 }
 
 .card-img-top {
   height: 100%;
   min-height: 286px;
   max-height: 286px;
+}
+.card:hover {
+  transform: scale(1.1);
+  z-index: 3;
 }
 #boton {
   display: flex;
@@ -52,3 +65,11 @@ body {
   
 }
 
+
+.toto {
+
+display: relative;
+margin-left: 10px;
+
+
+}
