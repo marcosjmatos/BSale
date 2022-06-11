@@ -1,4 +1,5 @@
 const input = document.querySelector("#formulario")
+// const text = input.value
 const buttonBuscar = document.querySelector("#boton")
 const resultado = document.querySelector(".products")
 const form = document.querySelector("#form")
@@ -10,10 +11,7 @@ const comprarButtons = document.querySelectorAll(".btn-primary")
 const tarjetaShopping = document.getElementsByClassName("tarjeta")
 const URL = "http://localhost:3000/"
 
-console.log(tarjetaShopping);
-
-
-async function getProducts(text) {
+async function getProducts() {
     let elements = []
     text = input.value.toLowerCase()
     resultado.innerHTML = ""
@@ -101,7 +99,6 @@ async function loadedCategory(cat) {
     return data
 }
 
-
 for (let button of arrCategoryBtns) {
     const num = arrCategoryBtns.indexOf(button) + 1
     button.addEventListener("click", (e)=>{
@@ -109,13 +106,6 @@ for (let button of arrCategoryBtns) {
         getProductsByCat(num)
     })
     
-}
-
-function buscarElement() {
-    buttonBuscar.addEventListener("click", (e)=>{
-        e.preventDefault()
-        console.log("hola");
-    })
 }
 
 
@@ -127,8 +117,14 @@ function removeElement(event) {
 
 for (const button of removeElementButtons) {
     button.addEventListener("click", ()=>{
-        button.closest("tarjeta").remove()
+        button.closest("card rounded-3 mb-4 tarjeta").remove()
     }) 
 }
 
 
+// if (buttonBuscar) {
+//     buttonBuscar.addEventListener("click",(e)=>{
+//         e.preventDefault()
+//         getProducts()
+//     })
+// }

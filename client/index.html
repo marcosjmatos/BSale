@@ -19,12 +19,12 @@
       <!-- logo y nombre -->
           <div class="">
             <img src="un-pan.png" alt="logo" width="30" height="30" class=" mb-2 " /> 
-            <a class="navbar-brand text-light fs-4 ms-2" href="/client/index.html">Matos Shop</a>
+            <a class="navbar-brand text-light fs-4 ms-2" href="index.html">Matos Shop</a>
           </div>
       <!--</div> -->
           <form class="row row-cols g-3 align-items-center">
             <input class="form-control " type="text" placeholder="Buscar" aria-label="Search" id="formulario"/>
-            <button class="btn btn-success" id="boton">Buscar</button>
+            <button class="btn btn-success" id="boton" type="button" onclick="getProducts()">Buscar</button>
           </form>
      
       <div class="dropdown">
@@ -41,7 +41,7 @@
                 <li><button class="dropdown-item" type="button" id="btncategory">Vodka</button></li>
               </ul>
               <!-- shopping cart button -->
-              <a href="shopping.html" type="button" class="btn btn-secondary position-relative">
+              <a type="button" class="btn btn-secondary position-relative" href="shopping.html">
                 Carrito <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">Carrito no está vacío</span></span>
               </a>
             </div>

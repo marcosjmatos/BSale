@@ -2,6 +2,7 @@ import express from "express"
 import getClient from "../database.js"
 const router = express.Router();
 
+
 const client = getClient()
 
 router.get("/products", (req, res) => {
