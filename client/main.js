@@ -54,13 +54,6 @@ function removeElement(event) {
   buttonClicked.parent;
 }
 
-// MALO
-for (const button of removeElementButtons) {
-  button.addEventListener("click", () => {
-    button.closest("card rounded-3 mb-4 tarjeta").remove();
-  });
-}
-
 // Buscador
 const input = document.querySelector("#formulario");
 const buttonBuscar = document.querySelector("#boton");
