@@ -1,3 +1,4 @@
+// const text = input.value
 const resultado = document.querySelector(".products")
 const container = document.querySelector(".container")
 const removeElementButtons =  document.querySelectorAll(".btn-outline-danger")
