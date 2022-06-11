@@ -45,7 +45,7 @@ async function getProductsByCat(cat) {
 async function loadedCategory(cat) {
   //hacer esto en el backend
 
-  const res = await fetch(`${URL}category/products/${cat}`);
+  const res = await fetch(`${URL}category/${cat}`);
   const data = res.json();
   return data;
 }
