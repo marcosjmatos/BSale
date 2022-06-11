@@ -1,26 +1,32 @@
 const input = document.querySelector("#formulario")
-const search = document.querySelector("#boton")
+const buttonBuscar = document.getElementById(".boton")
 const resultado = document.querySelector(".products")
 const form = document.querySelector("#form")
 const container = document.querySelector(".container")
 const categoryButtons = document.querySelectorAll("#btncategory") 
 const arrCategoryBtns = Array.from(categoryButtons)
+const removeElementButtons =  document.querySelectorAll(".btn-outline-danger")
+const comprarButtons = document.querySelectorAll(".btn-primary")
+const tarjetaShopping = document.getElementsByClassName("tarjeta")
 const URL = "http://localhost:3000/"
 
-async function getProducts(name) {
+console.log(tarjetaShopping);
+
+
+async function getProducts(text) {
     let elements = []
-    name = input.value.toLowerCase()
+    text = input.value.toLowerCase()
     resultado.innerHTML = ""
     try {
-        elements = await Loadelement(name)
+        elements = await Loadelement(text)
     } catch (err) {
         console.log(err);
     }
     for (let element of elements) {
         const elementName = element.name.toLowerCase()
-        if (name === "") {
+        if (text === "") {
             return
-        } if(elementName.indexOf(name) !== -1) {
+        } if(elementName.indexOf(text) !== -1) {
             resultado.innerHTML += 
             `<div class="card" style="width: 18rem">
             <img src=" ${ (element.url_image == null) || (element.url_image == '')  ? "https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" : element.url_image}" class="card-img-top img-fluid" alt="..." />
@@ -45,9 +51,9 @@ async function getProducts(name) {
           </div>`
     }
 }
-async function Loadelement(name) {
+async function Loadelement(prod) {
         //hacer esto en el backend
-    const res =await fetch(`${URL}products/${name}`,{
+    const res =await fetch(`${URL}products/${text}`,{
         headers: {
             "Content-type": "application/json",
             'Access-Control-Allow-Origin': "http://127.0.0.1:5500/",
@@ -95,10 +101,6 @@ async function loadedCategory(cat) {
     return data
 }
 
-search.addEventListener("click", (e)=>{
-    e.preventDefault()
-    getProducts(name)
-})
 
 for (let button of arrCategoryBtns) {
     const num = arrCategoryBtns.indexOf(button) + 1
@@ -106,5 +108,21 @@ for (let button of arrCategoryBtns) {
         e.preventDefault()
         getProductsByCat(num)
     })
+    
+}
+
+function removeElement(event) {
+    const buttonClicked =  event.target
+    buttonClicked.parent
 
 }
+
+
+for (const button of removeElementButtons) {
+    button.addEventListener("click", ()=>{
+        button.closest("tarjeta").remove()
+
+    }) 
+}
+
+
