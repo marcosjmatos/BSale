@@ -1,5 +1,5 @@
 const input = document.querySelector("#formulario")
-const buttonBuscar = document.getElementById(".boton")
+const buttonBuscar = document.querySelector("#boton")
 const resultado = document.querySelector(".products")
 const form = document.querySelector("#form")
 const container = document.querySelector(".container")
@@ -111,17 +111,23 @@ for (let button of arrCategoryBtns) {
     
 }
 
+function buscarElement() {
+    buttonBuscar.addEventListener("click", (e)=>{
+        e.preventDefault()
+        console.log("hola");
+    })
+}
+
+
 function removeElement(event) {
     const buttonClicked =  event.target
     buttonClicked.parent
-
 }
 
 
 for (const button of removeElementButtons) {
     button.addEventListener("click", ()=>{
         button.closest("tarjeta").remove()
-
     }) 
 }
 
