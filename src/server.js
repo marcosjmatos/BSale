@@ -1,7 +1,10 @@
+import cors from 'cors'
 import express from 'express'
 import routes from "./routes/products.js"
 const app = express();
 const PORT = process.env.PORT || 3000
+
+app.use(cors())
 
 //Settings
 app.set(PORT);
@@ -13,7 +16,7 @@ app.use(express.json());
 //Routes
 app.use(routes)
 
-app.get("*", (req,res)=>{
+app.get("/*", (req,res)=>{
     res.sendStatus(404)
 })
 
