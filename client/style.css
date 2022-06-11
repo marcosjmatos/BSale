@@ -10,11 +10,9 @@ body {
 }
 
 .toto {
- margin: 0px;
+  margin: 0px;
   padding: 1.5rem ;
- 
 }
-
 
 .card {
   margin: 30px;
@@ -56,20 +54,15 @@ body {
   margin-top: 20px !important;
 }
 #boton:hover {
-  
   color: white;
   font-size: 20px;
 }
 .form-inline {
   margin-top: 50px;
-  
 }
 
 
 .toto {
-
 display: relative;
 margin-left: 10px;
-
-
 }
